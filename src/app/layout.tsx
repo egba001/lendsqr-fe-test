@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Work_Sans } from 'next/font/google'
-import Head from 'next/head'
 
 const worksans = Work_Sans({
     subsets: ['latin'],

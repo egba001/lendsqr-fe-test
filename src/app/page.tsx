@@ -46,7 +46,7 @@ export default function Home() {
     }
 
     // Function to handle form submission
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    const handleSubmit = (e: React.FormEvent): void => {
         e.preventDefault()
         router.push('/dashboard/users')
     }
