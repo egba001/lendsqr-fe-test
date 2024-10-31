@@ -1,8 +1,8 @@
-import Image from "next/image";
-import briefcase from "@/assets/image/icons/briefcase.svg";
-import arrowDown from "@/assets/image/icons/arrow_down.svg";
-import { customersNavigations } from "@/utils/constants";
-import Link from "next/link";
+import Image from 'next/image'
+import briefcase from '@/assets/image/icons/briefcase.svg'
+import arrowDown from '@/assets/image/icons/arrow_down.svg'
+import { customersNavigations } from '@/utils/constants'
+import Link from 'next/link'
 
 export default function Sidebar() {
     return (
@@ -21,16 +21,12 @@ export default function Sidebar() {
 
                 <p className="nav-heading">Customers</p>
                 <ul>
-                    {
-                        customersNavigations.map((nav, id) => (
-                            <li>
-                                <Link href="/">
-                                </Link>
-                            </li>
-                        ))
-                    }
+                    {customersNavigations.map((nav, id) => (
+                        <li>
+                            <Link href="/"></Link>
+                        </li>
+                    ))}
                 </ul>
-
             </div>
         </aside>
     )
