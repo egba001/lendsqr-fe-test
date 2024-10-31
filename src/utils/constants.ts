@@ -34,28 +34,28 @@ export const customersNavigations: NavData[] = [
 
 // Contains all data for nav menu under businesses on the sidebar
 export const businessesNavigation: NavData[] = [
-    { title: 'Organization', icon: organization, route: '/dashboard/users' },
-    { title: 'Loan Products', icon: products, route: '/dashboard/users' },
+    { title: 'Organization', icon: organization, route: '/dashboard/#' },
+    { title: 'Loan Products', icon: products, route: '/dashboard/#' },
     {
         title: 'Savings Products',
         icon: savingsProducts,
-        route: '/dashboard/users',
+        route: '/dashboard/#',
     },
-    { title: 'Fees and Charges', icon: fees, route: '/dashboard/users' },
-    { title: 'Transactions', icon: transactions, route: '/dashboard/users' },
-    { title: 'Services', icon: services, route: '/dashboard/users' },
-    { title: 'Service Account', icon: serv_account, route: '/dashboard/users' },
-    { title: 'Settlements', icon: settlements, route: '/dashboard/users' },
-    { title: 'Reports', icon: reports, route: '/dashboard/users' },
+    { title: 'Fees and Charges', icon: fees, route: '/dashboard/#' },
+    { title: 'Transactions', icon: transactions, route: '/dashboard/#' },
+    { title: 'Services', icon: services, route: '/dashboard/#' },
+    { title: 'Service Account', icon: serv_account, route: '/dashboard/#' },
+    { title: 'Settlements', icon: settlements, route: '/dashboard/#' },
+    { title: 'Reports', icon: reports, route: '/dashboard/#' },
 ]
 
 // Contains all data for nav menu under settings on the sidebar
 export const settingsNavigation: NavData[] = [
-    { title: 'Preferences', icon: preferences, route: '/dashboard/users' },
+    { title: 'Preferences', icon: preferences, route: '/dashboard/#' },
     {
         title: 'Fees and Pricing',
         icon: feesAndPricing,
-        route: '/dashboard/users',
+        route: '/dashboard/#',
     },
-    { title: 'Audit Logs', icon: auditLogs, route: '/dashboard/users' },
+    { title: 'Audit Logs', icon: auditLogs, route: '/dashboard/#' },
 ]

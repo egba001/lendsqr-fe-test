@@ -12,7 +12,7 @@ export default async function UsersPage() {
 
     const users = await fetchUsersData()
 
-    console.log(users)
+    // console.log(users)
 
     return (
         <div>

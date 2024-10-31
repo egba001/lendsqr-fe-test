@@ -1,0 +1,99 @@
+@use 'variables';
+
+.sidebar {
+    width: 19rem;
+    background-color: white;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .link {
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        color: variables.$active_text;
+    }
+
+    div {
+        width: 100%;
+
+        .switch {
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .nav_button {
+            border: none;
+            background-color: inherit;
+            padding: 0 2rem;
+            outline: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Work Sans';
+            color: variables.$active_text;
+            font-weight: 400;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .nav_heading {
+            text-transform: uppercase;
+            font-size: 12px;
+            margin-bottom: 0.5rem;
+            margin-top: 2rem;
+            padding: 0 2rem;
+            font-family: 'Work Sans';
+            font-weight: 500;
+            color: variables.$text_color;
+        }
+
+        .sidebar_navigation {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            padding-top: 0.4rem;
+
+            li {
+                display: block;
+                padding: 0.2rem 2rem;
+                text-decoration: none;
+
+                .nav_route {
+                    display: flex;
+                    width: 100%;
+                    gap: 0.7rem;
+                    padding: 0.9rem 0;
+                    align-items: center;
+                    cursor: pointer;
+
+                    .nav_title {
+                        font-family: 'Work Sans';
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 19px;
+                        padding: 0px 10px;
+                        text-decoration: none;
+                        text-transform: capitalize;
+                    }
+                }
+            }
+
+            .active {
+                border-left: 2px solid variables.$primary_color;
+            }
+        }
+    }
+}
