@@ -8,3 +8,13 @@
     text-decoration: none;
     font-weight: bold;
 }
+
+// status tag mixin
+@mixin status_tag($text_color, $bg_color) {
+    background-color: $bg_color;
+    color: $text_color;
+    font-size: 12px;
+    border-radius: 9px;
+    padding: 1rem;
+    border: 1px solid $text_color;
+}

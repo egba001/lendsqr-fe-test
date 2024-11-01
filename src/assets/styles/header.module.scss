@@ -2,7 +2,8 @@
 
 .header {
     padding: 1rem 2rem;
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 100;
     margin: 0;
@@ -24,7 +25,7 @@
             input {
                 height: 2.5rem;
                 width: 20rem;
-                border: 1px solid variables.$text_color;
+                border: 1px solid rgba(33, 63, 125, 0.06);
                 border-radius: 10px;
                 padding-left: 10px;
                 transition: border-color 0.2s ease-in;

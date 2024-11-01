@@ -1,4 +1,4 @@
-import { NavData } from '../interfaces/constantsInterface'
+import { NavData, TableHeadings } from '../interfaces/constantsInterface'
 import users from '@/assets/image/icons/user.svg'
 import guarantors from '@/assets/image/icons/guarantors.svg'
 import loans from '@/assets/image/icons/loans.svg'
@@ -58,4 +58,32 @@ export const settingsNavigation: NavData[] = [
         route: '/dashboard/#',
     },
     { title: 'Audit Logs', icon: auditLogs, route: '/dashboard/#' },
+]
+
+// An array of table headers for users page
+export const tableHeaders: TableHeadings[] = [
+    {
+        id: 1,
+        title: 'Organization',
+    },
+    {
+        id: 2,
+        title: 'User',
+    },
+    {
+        id: 3,
+        title: 'Email',
+    },
+    {
+        id: 4,
+        title: 'Phone Number',
+    },
+    {
+        id: 5,
+        title: 'Date Joined',
+    },
+    {
+        id: 6,
+        title: 'Status',
+    },
 ]

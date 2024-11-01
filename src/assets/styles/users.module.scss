@@ -1,0 +1,42 @@
+@use 'variables';
+
+.container {
+    font-family: 'Work Sans';
+    padding-top: 5rem;
+
+    .heading {
+        font-weight: 500;
+        font-size: x-large;
+        color: variables.$secondary_color;
+        margin-bottom: 2rem;
+    }
+
+    .metrics_container {
+        display: flex;
+        gap: 2rem;
+
+        .card {
+            background-color: white;
+            width: 25%;
+            border-radius: 5px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            color: variables.$secondary_color;
+            border: 1px solid rgba(33, 63, 125, 0.06);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+
+            .data_text {
+                text-transform: uppercase;
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+            p {
+                font-weight: 600;
+                font-size: x-large;
+            }
+        }
+    }
+}

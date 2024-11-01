@@ -1,6 +1,6 @@
 export interface UsersInterface {
     companyName: string
-    userEmail: string
+    userName: string
     email: string
     phoneNumber: string
     dateJoined: string
