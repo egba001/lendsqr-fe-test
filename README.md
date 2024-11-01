@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lendsqr Frontend Engineering Assessment
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This project is a frontend application developed as part of the assessment for the Lendsqr engineering role. It is built using **Next.js**, **TypeScript**, and **SCSS**, with a mock API created using **Mocky.io** to simulate backend interactions. The application includes four primary pages: **Login**, **Dashboard**, **User Page**, and **User Details Page**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [File Structure](#file-structure)
+-   [Features](#features)
+-   [Design](#design)
+-   [Technologies Used](#technologies-used)
+-   [Testing](#testing)
+-   [Deployment](#deployment)
+-   [Conclusions](#conclusions)
+-   [Additional Documentation](#additional-documentation)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To set up the project locally, follow these steps:
 
-## Learn More
+1. Clone the repository:
 
-To learn more about Next.js, take a look at the following resources:
+    ```bash
+    git clone https://github.com/<your-username>/lendsqr-fe-test.git
+    cd lendsqr-fe-test
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Install dependencies:
 
-## Deploy on Vercel
+    ```bash
+    npm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Start the development server:
+
+    ```bash
+    npm run dev
+
+    ```
+
+4. Open your browser and go to [http://localhost:3000](http://localhost:3000)
+
+## Usage
+
+-   Navigate to the **Login** page to authenticate users.
+-   After logging in, users will be redirected to the **Dashboard**.
+-   The **User Page** displays a list of users fetched from the mock API.
+-   Clicking on a user leads to the **User Details Page**, where additional user information is stored in local storage.
+
+## File Structure
+
+The project follows a modular structure, which helps in maintaining clarity and organization:
+
+### Description of Key Directories
+
+-   **public/**: Contains static assets like images and icons.
+-   **src/**: Main source directory for application code.
+    -   **components/**: Contains reusable components such as filters, loaders, user cards, and modals.
+    -   **app/**: Contains page components; each file corresponds to a route in the application.
+    -   **assets/**: Contains SCSS files for styling component-specific styles, storing images, icons and local fonts.
+    -   **utils/**: Utility functions.
+    -   **interfaces/**: TypeScript interfaces definitions for data structures used in the app.
+    -   **contexts/**: Contexts files used within the application are stored here.
+
+## Features
+
+-   **Responsive Design**: The application is fully responsive and adapts to various screen sizes using flexible layouts and media queries.
+-   **Mock API Integration**: Simulates user data retrieval from a backend service using Mocky.io.
+-   **Local Storage**: User details are persisted using local storage, allowing data to remain available between sessions.
+-   **Interactive UI**: Dynamic filtering and user interactions enhance usability.
+
+## Design
+
+The application was designed to closely follow the provided Figma design specifications. Key design elements include:
+
+-   Consistent use of colors, fonts, and spacing as outlined in the Figma files.
+-   Responsive grid layouts for both the dashboard and user lists.
+-   Interactive elements such as buttons and modals that match the design mockups.
+
+## Technologies Used
+
+-   **Next.js**: Framework for server-rendered React applications.
+-   **TypeScript**: A typed superset of JavaScript for building robust applications.
+-   **SCSS**: CSS preprocessor for modular and maintainable styles.
+-   **Mocky.io**: Tool used to create a mock API for simulating backend responses.
+
+## Testing
+
+The application includes unit tests to validate functionality, covering:
+
+-   Positive and negative scenarios for user login.
+-   API response handling.
+-   Local storage interactions.
+
+Tests are implemented using **Jest** and **React Testing Library** for component-level testing.
+
+## Deployment
+
+The application is deployed on Vercel. You can access the live demo [here](https://egba-nnaemeka-lendsqr-fe-test.vercel.app).
+
+## Conclusions
+
+This assessment provided an opportunity to demonstrate my proficiency in building responsive web applications using Next.js a React framework, TypeScript, and SCSS. The design fidelity and adherence to the project requirements were prioritized throughout development. Feedback is welcomed!
+
+## Additional Documentation
+
+For a detailed review of my work, including decision-making and comparisons with the design, please refer to this document: [Project Review Document](https://link-to-your-document.com).
+
+### Video Review
+
+I have created a video walkthrough of the application showcasing the implementation against the design specifications. You can view it here: [Video Review](https://link-to-your-video.com).
