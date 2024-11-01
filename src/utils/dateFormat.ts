@@ -28,8 +28,3 @@ export function formatDate(dateString: string): string | null {
         .format(date)
         .replace(',', '')
 }
-
-// Usage
-const dateString = '2023-08-23T17:15:00Z'
-const formattedDate = formatDate(dateString)
-console.log(formattedDate) // e.g., "8/23/2023, 5:15 PM"

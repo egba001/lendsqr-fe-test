@@ -8,6 +8,11 @@
     border: 1px solid rgba(33, 63, 125, 0.06);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
     overflow: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     table {
         width: 105%;
@@ -23,6 +28,79 @@
         td {
             border-bottom: 1px solid rgba(33, 63, 125, 0.1);
         }
+
+        .user_details_container {
+            position: relative;
+            border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+
+            .action_menu {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 2rem;
+                width: 2rem;
+
+                &:hover {
+                    background-color: rgba(33, 63, 125, 0.1);
+                    cursor: pointer;
+                    border-radius: 5rem;
+                }
+
+                .hidden {
+                    display: none;
+                }
+
+                .visible {
+                    display: block;
+                }
+            }
+        }
+
+        .menu_options {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            list-style-type: none;
+            width: 11rem;
+            font-weight: 500;
+            font-family: 'Work Sans';
+            right: 1rem;
+            top: 4rem;
+            background-color: white;
+            z-index: 80;
+            padding: 0.1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(33, 63, 125, 0.06);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+
+            .link {
+                text-decoration: none;
+                color: variables.$text_color;
+            }
+
+            .action {
+                display: flex;
+                color: variables.$text_color;
+                gap: 1rem;
+                font-weight: 500;
+                font-family: 'Work Sans';
+                align-items: center;
+                background-color: inherit;
+                border: none;
+                transition: background-color 0.1s ease-in;
+                padding: 0.7rem 1.2rem;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: aliceblue;
+                }
+            }
+        }
+
+        .user_details_container {
+            position: relative;
+        }
     }
 }
 
@@ -35,4 +113,69 @@
     text-transform: uppercase;
     color: variables.$text-color;
     font-size: 12px;
+}
+
+// Styling for pagination section
+.pagination_section {
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        color: variables.$text_color;
+
+        select {
+            background-color: rgba(33, 63, 125, 0.1);
+            padding: 0.4rem;
+            border-radius: 4px;
+            width: 4rem;
+            border: none;
+            outline: none;
+        }
+    }
+}
+
+// styling for pagination component
+.pagination_container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    button {
+        border: none;
+        border-radius: 6px;
+        background-color: inherit;
+        cursor: pointer;
+        transition: background-color 0.1s ease-in;
+        height: 2rem;
+        width: 2rem;
+        font-family: 'Work Sans';
+
+        &:active {
+            background-color: rgba(33, 63, 125, 0.4);
+        }
+
+        &:hover {
+            background-color: rgba(33, 63, 125, 0.1);
+        }
+    }
+
+    .button {
+        height: 2rem;
+        width: 2rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        background-color: rgba(33, 63, 125, 0.1);
+
+        &:active {
+            background-color: rgba(33, 63, 125, 0.4);
+        }
+    }
 }

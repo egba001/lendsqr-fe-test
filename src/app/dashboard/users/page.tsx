@@ -46,7 +46,7 @@ export default async function UsersPage() {
                 />
             </div>
 
-            <UsersTable usersData={users} />
+            <UsersTable usersData={users.slice(400)} />
         </div>
     )
 }
