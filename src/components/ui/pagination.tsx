@@ -1,4 +1,3 @@
-// src/Pagination.tsx
 import styles from '@/assets/styles/table.module.scss'
 import left from '@/assets/image/icons/left.svg'
 import right from '@/assets/image/icons/right.svg'
@@ -59,27 +58,26 @@ const Pagination: React.FC<PaginationProps> = ({
     return (
         <div className={styles.pagination_container}>
             <button
-                className={styles.button}
+                className={styles.main_button}
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
             >
                 <Image src={left} alt="previous" width={10} height={10} />
             </button>
             {getPaginationItems().map((item, index) => (
-                <button
+                <div
                     key={index}
                     onClick={() =>
                         typeof item === 'number' && handlePageChange(item)
                     }
                     className={currentPage === item ? styles.active : ''}
                     style={{ margin: '0 5px' }}
-                    disabled={item === '...'}
                 >
-                    {item}
-                </button>
+                    <span>{item}</span>
+                </div>
             ))}
             <button
-                className={styles.button}
+                className={styles.main_button}
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
             >

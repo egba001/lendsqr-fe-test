@@ -1,0 +1,124 @@
+@use 'variables';
+@use 'mixins';
+
+@mixin cta_button($color) {
+    background-color: inherit;
+    text-transform: uppercase;
+    border: 1px solid $color;
+    color: $color;
+    font-family: 'Work Sans';
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 0.7rem 1.2rem;
+}
+
+.container {
+    font-family: 'Work Sans';
+
+    .tab_content {
+        background-color: white;
+        border-radius: 5px;
+        border: 1px solid rgba(33, 63, 125, 0.06);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+        padding: 2rem;
+    }
+
+    .previous_button {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        background-color: inherit;
+        border: none;
+        font-family: 'Work Sans';
+        color: variables.$text_color;
+        font-weight: 500;
+        margin-bottom: 2rem;
+        cursor: pointer;
+    }
+
+    .heading_container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+
+        div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            .cta_blacklist {
+                @include cta_button(#e4033b);
+            }
+
+            .activate_user {
+                @include cta_button(variables.$primary_color);
+            }
+        }
+
+        .heading {
+            font-size: x-large;
+            font-weight: 500;
+            color: variables.$secondary_color;
+        }
+    }
+
+    .info_container {
+        @extend .tab_content;
+        margin-bottom: 2rem;
+
+        .info_details {
+            display: flex;
+            align-items: center;
+            color: variables.$secondary_color;
+            margin-bottom: 2rem;
+
+            .image_section {
+                display: flex;
+                gap: 0.7rem;
+                align-items: center;
+                padding-right: 1.5rem;
+
+                div {
+                    .f_name {
+                        font-weight: 500;
+                        font-size: larger;
+                    }
+                }
+            }
+
+            .subsection {
+                @extend .image_section;
+                flex-direction: column;
+                padding-left: 1.5rem;
+
+                span {
+                    font-weight: 500;
+                }
+
+                div {
+                    display: flex;
+                    gap: 0.3rem;
+                }
+
+                .amount {
+                    font-weight: 600;
+                    font-size: larger;
+                    text-align: start;
+                    align-self: self-start;
+                }
+
+                .bank_details {
+                    font-weight: 400;
+                    font-size: 12px;
+                }
+            }
+
+            .divider {
+                width: 1px;
+                border: 1px solid rgba(33, 63, 125, 0.06);
+                height: 6rem;
+            }
+        }
+    }
+}

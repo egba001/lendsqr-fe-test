@@ -1,3 +1,4 @@
+import { UsersProvider } from '@/contexts/usersDataContext'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Work_Sans } from 'next/font/google'
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${worksans}`}>{children}</body>
+            <body className={`${worksans}`}>
+                <UsersProvider>{children}</UsersProvider>
+            </body>
         </html>
     )
 }

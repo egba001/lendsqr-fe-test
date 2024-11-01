@@ -1,9 +1,9 @@
 @use 'variables';
 
 .sidebar {
-    width: 17rem;
+    width: 22rem;
     background-color: white;
-    padding-top: 6rem;
+    padding-top: 5rem;
     padding-bottom: 4rem;
     display: flex;
     flex-direction: column;
@@ -68,14 +68,14 @@
 
             li {
                 display: block;
-                padding: 0.2rem 2rem;
+                padding: 0.2rem 0;
                 text-decoration: none;
 
                 .nav_route {
                     display: flex;
                     width: 100%;
                     gap: 0.7rem;
-                    padding: 0.9rem 0;
+                    padding: 0.9rem 2rem;
                     align-items: center;
                     cursor: pointer;
 
@@ -89,10 +89,10 @@
                         text-transform: capitalize;
                     }
                 }
-            }
-
-            .active {
-                border-left: 2px solid variables.$primary_color;
+                .active {
+                    border-left: 5px solid variables.$primary_color;
+                    background-color: rgba(57, 205, 204, 0.08);
+                }
             }
         }
     }

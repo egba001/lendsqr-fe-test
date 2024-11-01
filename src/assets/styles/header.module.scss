@@ -3,6 +3,7 @@
 .header {
     padding: 1rem 2rem;
     position: fixed;
+    font-family: 'Work Sans';
     width: 100%;
     top: 0;
     z-index: 100;
@@ -23,8 +24,8 @@
             margin-left: 12rem;
 
             input {
-                height: 2.5rem;
-                width: 20rem;
+                height: 2.9rem;
+                width: 25rem;
                 border: 1px solid rgba(33, 63, 125, 0.06);
                 border-radius: 10px;
                 padding-left: 10px;
@@ -76,8 +77,8 @@
             }
 
             .profile_picture_container {
-                height: 3.5rem;
-                width: 3.5rem;
+                height: 2.8rem;
+                width: 2.8rem;
                 border-radius: 100%;
                 overflow: hidden;
                 display: flex;
@@ -102,7 +103,7 @@
                 align-items: center;
 
                 p {
-                    font-weight: bold;
+                    font-weight: 500;
                     color: variables.$secondary_color;
                 }
             }

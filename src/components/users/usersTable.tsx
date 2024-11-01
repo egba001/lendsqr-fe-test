@@ -3,13 +3,14 @@ import { useState, useRef, useEffect } from 'react'
 import { formatDate } from '@/utils/dateFormat'
 import TableHeader from './tableHeader'
 import styles from '@/assets/styles/table.module.scss'
-import StatusTag from './ui/statusTag'
+import StatusTag from './statusTag'
 import Image from 'next/image'
 import dotsIcon from '@/assets/image/icons/dots.svg'
 import activate from '@/assets/image/icons/activate.svg'
 import blacklist from '@/assets/image/icons/blacklist.svg'
 import view from '@/assets/image/icons/view.svg'
-import Pagination from './ui/pagination'
+import Pagination from '../ui/pagination'
+import { useRouter } from 'next/navigation'
 
 interface UsersDetails {
     usersData: {
@@ -26,27 +27,24 @@ export default function UsersTable({ usersData }: UsersDetails) {
     const [menuOnDisplay, setMenuOnDisplay] = useState<number | null>(null)
     const menuRef = useRef<HTMLUListElement | null>(null)
 
-    // state to hold current page of table data
     const [currentPage, setCurrentPage] = useState<number>(1)
-
-    // state to hold items of data per page
     const [itemsPerPage, setItemsPerPage] = useState<number>(10)
+
+    const router = useRouter()
 
     const totalPages = Math.ceil(usersData.length / itemsPerPage)
     const startIndex = (currentPage - 1) * itemsPerPage
     const currentUsers = usersData.slice(startIndex, startIndex + itemsPerPage)
 
-    // function to handle change of page
     const handlePageChange = (page: number) => {
         setCurrentPage(page)
     }
 
-    // function to handle selection of number of items per page
     const handleItemsPerPageChange = (
         event: React.ChangeEvent<HTMLSelectElement>
     ) => {
         setItemsPerPage(Number(event.target.value))
-        setCurrentPage(1) // Reset to first page when items per page changes
+        setCurrentPage(1)
     }
 
     const openModal = (id: number) => {
@@ -164,10 +162,8 @@ export default function UsersTable({ usersData }: UsersDetails) {
                         <option value={15}>15</option>
                         <option value={20}>20</option>
                     </select>
-
                     <span>out of {usersData.length}</span>
                 </div>
-
                 <Pagination
                     currentPage={currentPage}
                     totalPages={totalPages}

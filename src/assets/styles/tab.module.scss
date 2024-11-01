@@ -1,0 +1,25 @@
+@use 'variables';
+
+.tab_container {
+    width: 100%;
+
+    .tab_list {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+
+        li {
+            transition:
+                color 0.05s ease-in,
+                border-bottom 0.2s ease-in;
+            padding: 1rem 1.4rem;
+            border-bottom: 2px solid white;
+            cursor: pointer;
+        }
+
+        .active {
+            border-bottom: 2px solid variables.$primary_color;
+            color: variables.$primary_color;
+        }
+    }
+}

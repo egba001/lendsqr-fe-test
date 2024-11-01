@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import briefcase from '@/assets/image/icons/briefcase.svg'
 import home from '@/assets/image/icons/home.svg'
@@ -9,8 +10,13 @@ import {
 } from '@/utils/constants'
 import Link from 'next/link'
 import styles from '@/assets/styles/sidebar.module.scss'
+import { usePathname } from 'next/navigation'
 
 export default function Sidebar() {
+    const pathname = usePathname()
+
+    console.log(pathname)
+
     return (
         <aside className={styles.sidebar}>
             <div>
@@ -20,7 +26,7 @@ export default function Sidebar() {
                     <Image src={arrowDown} alt="arrow down" />
                 </button>
 
-                <Link href="/dashboard" className={styles.link}>
+                <Link href="/dashboard/#" className={styles.link}>
                     <button className={styles.nav_button}>
                         <Image src={home} alt="home" />
                         <span>Dashboard</span>
@@ -33,7 +39,9 @@ export default function Sidebar() {
                     {customersNavigations.map((nav, id) => (
                         <li key={id}>
                             <Link href={nav.route} className={styles.link}>
-                                <div className={styles.nav_route}>
+                                <div
+                                    className={`${styles.nav_route} ${pathname === nav.route ? styles.active : null}`}
+                                >
                                     <Image
                                         src={nav.icon}
                                         alt={nav.title}

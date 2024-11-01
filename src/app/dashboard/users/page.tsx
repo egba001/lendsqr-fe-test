@@ -1,23 +1,20 @@
-import { UsersInterface } from '@/interfaces/usersInterface'
+// src/app/users/UsersPageContent.tsx
+'use client'
 import styles from '@/assets/styles/users.module.scss'
-import MetricsCard from '@/components/ui/metricsCard'
+import MetricsCard from '@/components/users/metricsCard'
 import users_icon from '@/assets/image/icons/users_dashboard.svg'
 import active_users from '@/assets/image/icons/active_users.svg'
 import uloan from '@/assets/image/icons/uloan.svg'
 import usavings from '@/assets/image/icons/usavings.svg'
-import UsersTable from '@/components/usersTable'
+import UsersTable from '@/components/users/usersTable'
+import { useUsersContext } from '@/contexts/usersDataContext'
 
-export default async function UsersPage() {
-    // function to fetch mock data from mocky endpoint
-    const fetchUsersData = async (): Promise<UsersInterface[]> => {
-        let data = await fetch(
-            'https://run.mocky.io/v3/a8597810-24fb-40ea-b840-ce6f2c1e2f68'
-        )
-        let posts = await data.json()
-        return posts
+const UsersPageContent = () => {
+    const { usersData, loading } = useUsersContext()
+
+    if (loading) {
+        return <div className={styles.container}>Loading...</div>
     }
-
-    const users = await fetchUsersData()
 
     return (
         <div className={styles.container}>
@@ -27,12 +24,12 @@ export default async function UsersPage() {
                 <MetricsCard
                     icon={users_icon}
                     data="Users"
-                    value={users.length}
+                    value={usersData.length}
                 />
                 <MetricsCard
                     icon={active_users}
                     data="Active Users"
-                    value={users.length}
+                    value={usersData.length}
                 />
                 <MetricsCard
                     icon={uloan}
@@ -46,7 +43,9 @@ export default async function UsersPage() {
                 />
             </div>
 
-            <UsersTable usersData={users.slice(400)} />
+            <UsersTable usersData={usersData} />
         </div>
     )
 }
+
+export default UsersPageContent

@@ -1,8 +1,8 @@
 @use 'variables';
+@use 'mixins';
 
 .container {
     font-family: 'Work Sans';
-    padding-top: 5rem;
 
     .heading {
         font-weight: 500;

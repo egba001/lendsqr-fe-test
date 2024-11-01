@@ -132,11 +132,15 @@
 
         select {
             background-color: rgba(33, 63, 125, 0.1);
+            color: variables.$secondary_color;
             padding: 0.4rem;
             border-radius: 4px;
             width: 4rem;
             border: none;
             outline: none;
+            font-weight: 600;
+            font-size: medium;
+            font-family: 'Work Sans';
         }
     }
 }
@@ -147,7 +151,7 @@
     align-items: center;
     gap: 0.5rem;
 
-    button {
+    div {
         border: none;
         border-radius: 6px;
         background-color: inherit;
@@ -155,7 +159,14 @@
         transition: background-color 0.1s ease-in;
         height: 2rem;
         width: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         font-family: 'Work Sans';
+        color: variables.$text_color;
+        opacity: 0.7;
+        cursor: pointer;
 
         &:active {
             background-color: rgba(33, 63, 125, 0.4);
@@ -166,7 +177,13 @@
         }
     }
 
-    .button {
+    .active {
+        @extend div;
+        opacity: 1;
+        font-weight: 600;
+    }
+
+    .main_button {
         height: 2rem;
         width: 2rem;
         border: none;

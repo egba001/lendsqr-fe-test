@@ -23,13 +23,13 @@ import auditLogs from '@/assets/image/icons/logs.svg'
 // Contains all data for nav menu under customers on the sidebar
 export const customersNavigations: NavData[] = [
     { title: 'Users', icon: users, route: '/dashboard/users' },
-    { title: 'Guarantors', icon: guarantors, route: '/dashboard/users' },
-    { title: 'Loans', icon: loans, route: '/dashboard/users' },
-    { title: 'Decision Models', icon: models, route: '/dashboard/users' },
-    { title: 'Savings', icon: savings, route: '/dashboard/users' },
-    { title: 'Loan Requests', icon: requests, route: '/dashboard/users' },
-    { title: 'Whitelist', icon: whitelist, route: '/dashboard/users' },
-    { title: 'Karma', icon: karma, route: '/dashboard/users' },
+    { title: 'Guarantors', icon: guarantors, route: '/dashboard/#' },
+    { title: 'Loans', icon: loans, route: '/dashboard/#' },
+    { title: 'Decision Models', icon: models, route: '/dashboard/#' },
+    { title: 'Savings', icon: savings, route: '/dashboard/#' },
+    { title: 'Loan Requests', icon: requests, route: '/dashboard/#' },
+    { title: 'Whitelist', icon: whitelist, route: '/dashboard/#' },
+    { title: 'Karma', icon: karma, route: '/dashboard/#' },
 ]
 
 // Contains all data for nav menu under businesses on the sidebar

@@ -1,5 +1,5 @@
-import Header from '@/components/header'
-import Sidebar from '@/components/sidebar'
+import Header from '@/components/common/header'
+import Sidebar from '@/components/common/sidebar'
 import styles from '@/assets/styles/dashboardLayout.module.scss'
 
 export default function DashboardLayout({
