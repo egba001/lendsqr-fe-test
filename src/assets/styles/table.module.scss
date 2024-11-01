@@ -20,9 +20,16 @@
 
         th,
         td {
-            padding: 1.5rem 0.7rem;
+            padding: 1.5rem 0.6rem;
             text-align: left;
             font-size: 14px;
+            position: relative;
+
+            .header_span {
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+            }
         }
 
         td {

@@ -1,7 +1,7 @@
 @use 'variables';
 
 .sidebar {
-    width: 22rem;
+    width: 24rem;
     background-color: white;
     padding-top: 5rem;
     padding-bottom: 4rem;
@@ -37,11 +37,11 @@
         .nav_button {
             border: none;
             background-color: inherit;
-            padding: 0 2rem;
+            padding: 0.9 2rem;
             outline: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1.3rem;
             font-family: 'Work Sans';
             color: variables.$active_text;
             font-weight: 400;
@@ -93,6 +93,20 @@
                     border-left: 5px solid variables.$primary_color;
                     background-color: rgba(57, 205, 204, 0.08);
                 }
+            }
+        }
+
+        .logout {
+            margin-top: 2.5rem;
+            padding-top: 1rem;
+            gap: 1.5rem;
+            border-top: 1px solid rgba(33, 63, 125, 0.06);
+
+            p {
+                font-size: 12px;
+                font-family: 'Work Sans';
+                padding: 2rem;
+                color: variables.$secondary_color;
             }
         }
     }

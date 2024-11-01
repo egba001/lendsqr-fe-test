@@ -12,6 +12,9 @@ import { useUsersContext } from '@/contexts/usersDataContext'
 const UsersPageContent = () => {
     const { usersData, loading } = useUsersContext()
 
+    const activeUsers =
+        usersData && usersData.filter((data) => data.status === 'active').length
+
     if (loading) {
         return <div className={styles.container}>Loading...</div>
     }
@@ -29,7 +32,7 @@ const UsersPageContent = () => {
                 <MetricsCard
                     icon={active_users}
                     data="Active Users"
-                    value={usersData.length}
+                    value={activeUsers}
                 />
                 <MetricsCard
                     icon={uloan}

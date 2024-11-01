@@ -11,16 +11,11 @@ import blacklist from '@/assets/image/icons/blacklist.svg'
 import view from '@/assets/image/icons/view.svg'
 import Pagination from '../ui/pagination'
 import { useRouter } from 'next/navigation'
+import { UsersInterface } from '@/interfaces/usersInterface'
+import { Filters } from '../ui/filter'
 
 interface UsersDetails {
-    usersData: {
-        companyName: string
-        dateJoined: string
-        email: string
-        phoneNumber: string
-        status: string
-        userName: string
-    }[]
+    usersData: UsersInterface[]
 }
 
 export default function UsersTable({ usersData }: UsersDetails) {
@@ -29,12 +24,56 @@ export default function UsersTable({ usersData }: UsersDetails) {
 
     const [currentPage, setCurrentPage] = useState<number>(1)
     const [itemsPerPage, setItemsPerPage] = useState<number>(10)
+    const [filteredUsers, setFilteredUsers] =
+        useState<UsersInterface[]>(usersData)
+
+    // function to filter users based on filters input
+    const filterUsers = (filters: Filters) => {
+        const filtered =
+            usersData &&
+            usersData.filter((user) => {
+                return (
+                    (filters.company
+                        ? user.companyName.toLowerCase() ===
+                          filters.company.toLowerCase()
+                        : true) &&
+                    (filters.username
+                        ? user.userName.includes(filters.username)
+                        : true) &&
+                    (filters.email
+                        ? user.email.includes(filters.email)
+                        : true) &&
+                    (filters.date
+                        ? user.dateJoined.startsWith(filters.date)
+                        : true) &&
+                    (filters.phoneNumber
+                        ? user.phoneNumber.includes(filters.phoneNumber)
+                        : true) &&
+                    (filters.employmentStatus
+                        ? user.educationAndEmployment.employmentStatus ===
+                          filters.employmentStatus
+                        : true)
+                )
+            })
+        console.log(filters)
+        setCurrentPage(1)
+        setFilteredUsers(filtered)
+        setMenuOnDisplay(null)
+    }
+
+    // funcion to reset filters
+    const resetFilters = () => {
+        setFilteredUsers(usersData)
+    }
 
     const router = useRouter()
 
     const totalPages = Math.ceil(usersData.length / itemsPerPage)
     const startIndex = (currentPage - 1) * itemsPerPage
-    const currentUsers = usersData.slice(startIndex, startIndex + itemsPerPage)
+    const currentUsers = filteredUsers.slice(
+        startIndex,
+        startIndex + itemsPerPage
+    )
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page)
@@ -74,13 +113,19 @@ export default function UsersTable({ usersData }: UsersDetails) {
     if (!usersData) {
         return <p>Loading...</p>
     }
+    if (!currentUsers) {
+        return <p>No record found</p>
+    }
 
     return (
         <>
             <div className={styles.table_container}>
                 <table>
                     <thead>
-                        <TableHeader />
+                        <TableHeader
+                            onFilter={filterUsers}
+                            onResetAction={resetFilters}
+                        />
                     </thead>
                     <tbody>
                         {currentUsers.map((data, id) => (
@@ -107,6 +152,7 @@ export default function UsersTable({ usersData }: UsersDetails) {
                                     <ul
                                         ref={menuRef}
                                         className={styles.menu_options}
+                                        onClick={(e) => e.stopPropagation()}
                                         style={{
                                             display:
                                                 menuOnDisplay === id

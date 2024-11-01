@@ -3,6 +3,7 @@ import Image from 'next/image'
 import briefcase from '@/assets/image/icons/briefcase.svg'
 import home from '@/assets/image/icons/home.svg'
 import arrowDown from '@/assets/image/icons/arrow_down.svg'
+import logout from '@/assets/image/icons/logout.svg'
 import {
     customersNavigations,
     businessesNavigation,
@@ -100,6 +101,19 @@ export default function Sidebar() {
                         </li>
                     ))}
                 </ul>
+
+                <div className={styles.logout}>
+                    <button className={styles.nav_button}>
+                        <Image
+                            src={logout}
+                            alt="signout"
+                            height={18}
+                            width={18}
+                        />
+                        <span>Logout</span>
+                    </button>
+                    <p>v12.0</p>
+                </div>
             </div>
         </aside>
     )
