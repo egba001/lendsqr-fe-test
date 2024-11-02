@@ -56,6 +56,140 @@ To set up the project locally, follow these steps:
 
 The project follows a modular structure, which helps in maintaining clarity and organization:
 
+```
+📦
+├─ .eslintrc.json
+├─ .gitignore
+├─ .husky
+│  └─ pre-commit
+├─ .prettierignore
+├─ .prettierrc
+├─ .vscode
+│  └─ settings.json
+├─ README.md
+├─ __test__
+│  └─ Login.test.tsx
+├─ jest.config.ts
+├─ jest.setup.ts
+├─ next.config.ts
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ app
+│  │  ├─ dashboard
+│  │  │  ├─ layout.tsx
+│  │  │  └─ users
+│  │  │     ├─ [user]
+│  │  │     │  └─ page.tsx
+│  │  │     └─ page.tsx
+│  │  ├─ favicon.ico
+│  │  ├─ globals.css
+│  │  ├─ layout.tsx
+│  │  └─ page.tsx
+│  ├─ assets
+│  │  ├─ font
+│  │  │  ├─ AvenirNextLTPro-Bold.otf
+│  │  │  ├─ AvenirNextLTPro-It.otf
+│  │  │  └─ AvenirNextLTPro-Regular.otf
+│  │  ├─ image
+│  │  │  ├─ icons
+│  │  │  │  ├─ activate.svg
+│  │  │  │  ├─ active_users.svg
+│  │  │  │  ├─ arrow_down.svg
+│  │  │  │  ├─ avatar.svg
+│  │  │  │  ├─ blacklist.svg
+│  │  │  │  ├─ briefcase.svg
+│  │  │  │  ├─ dots.svg
+│  │  │  │  ├─ dropdown.svg
+│  │  │  │  ├─ fees.svg
+│  │  │  │  ├─ filter-results-button.svg
+│  │  │  │  ├─ guarantors.svg
+│  │  │  │  ├─ home.svg
+│  │  │  │  ├─ illustration.svg
+│  │  │  │  ├─ karma.svg
+│  │  │  │  ├─ left.svg
+│  │  │  │  ├─ loans.svg
+│  │  │  │  ├─ logo.svg
+│  │  │  │  ├─ logout.svg
+│  │  │  │  ├─ logs.svg
+│  │  │  │  ├─ messages.svg
+│  │  │  │  ├─ models.svg
+│  │  │  │  ├─ notification.svg
+│  │  │  │  ├─ notification_main.svg
+│  │  │  │  ├─ org.svg
+│  │  │  │  ├─ preferences.svg
+│  │  │  │  ├─ previous.svg
+│  │  │  │  ├─ pricing.svg
+│  │  │  │  ├─ products.svg
+│  │  │  │  ├─ reports.svg
+│  │  │  │  ├─ requests.svg
+│  │  │  │  ├─ right.svg
+│  │  │  │  ├─ savings.svg
+│  │  │  │  ├─ savings_product.svg
+│  │  │  │  ├─ search.svg
+│  │  │  │  ├─ service_account.svg
+│  │  │  │  ├─ services.svg
+│  │  │  │  ├─ settlements.svg
+│  │  │  │  ├─ sidebar_arrow.svg
+│  │  │  │  ├─ star_off.svg
+│  │  │  │  ├─ star_on.svg
+│  │  │  │  ├─ transactions.svg
+│  │  │  │  ├─ uloan.svg
+│  │  │  │  ├─ usavings.svg
+│  │  │  │  ├─ user.svg
+│  │  │  │  ├─ users_dashboard.svg
+│  │  │  │  ├─ view.svg
+│  │  │  │  └─ whitelist.svg
+│  │  │  └─ profile-image.png
+│  │  └─ styles
+│  │     ├─ _mixins.import.scss
+│  │     ├─ _mixins.scss
+│  │     ├─ _variables.scss
+│  │     ├─ dashboardLayout.module.scss
+│  │     ├─ filter.module.scss
+│  │     ├─ generalDetails.module.scss
+│  │     ├─ header.module.scss
+│  │     ├─ login.module.scss
+│  │     ├─ mobileMenu.module.scss
+│  │     ├─ mobileSidebar.module.scss
+│  │     ├─ searchInput.module.scss
+│  │     ├─ sidebar.module.scss
+│  │     ├─ tab.module.scss
+│  │     ├─ table.module.scss
+│  │     ├─ userDetails.module.scss
+│  │     └─ users.module.scss
+│  ├─ components
+│  │  ├─ common
+│  │  │  ├─ header.tsx
+│  │  │  ├─ mobileMenu.tsx
+│  │  │  ├─ mobileSidebar.tsx
+│  │  │  ├─ searchInput.tsx
+│  │  │  └─ sidebar.tsx
+│  │  ├─ ui
+│  │  │  ├─ filter.tsx
+│  │  │  ├─ pagination.tsx
+│  │  │  └─ tab.tsx
+│  │  ├─ userDetails
+│  │  │  └─ generalDetails.tsx
+│  │  └─ users
+│  │     ├─ metricsCard.tsx
+│  │     ├─ statusTag.tsx
+│  │     ├─ tableHeader.tsx
+│  │     └─ usersTable.tsx
+│  ├─ contexts
+│  │  └─ usersDataContext.tsx
+│  ├─ interfaces
+│  │  ├─ constantsInterface.ts
+│  │  └─ usersInterface.ts
+│  └─ utils
+│     ├─ constants.ts
+│     └─ dateFormat.ts
+├─ tsconfig.json
+└─ vercel.json
+```
+
+©generated by [Project Tree Generator](https://woochanleee.github.io/project-tree-generator)
+
 ### Description of Key Directories
 
 -   **public/**: Contains static assets like images and icons.
