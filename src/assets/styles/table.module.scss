@@ -38,6 +38,10 @@
             border-bottom: 1px solid rgba(33, 63, 125, 0.1);
         }
 
+        td:nth-child(6) {
+            width: 8rem;
+        }
+
         .user_details_container {
             position: relative;
             border-bottom: 1px solid rgba(33, 63, 125, 0.1);

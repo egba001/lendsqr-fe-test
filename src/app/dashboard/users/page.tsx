@@ -10,7 +10,7 @@ import UsersTable from '@/components/users/usersTable'
 import { useUsersContext } from '@/contexts/usersDataContext'
 
 const UsersPageContent = () => {
-    const { usersData, loading } = useUsersContext()
+    const { usersData, loading, setUsersData } = useUsersContext()
 
     const activeUsers =
         usersData && usersData.filter((data) => data.status === 'active').length
@@ -46,7 +46,10 @@ const UsersPageContent = () => {
                 />
             </div>
 
-            <UsersTable usersData={usersData} />
+            <UsersTable
+                usersData={usersData}
+                setUsersDataAction={setUsersData}
+            />
         </div>
     )
 }

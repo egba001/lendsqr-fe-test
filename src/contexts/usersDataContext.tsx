@@ -5,6 +5,7 @@ import { UsersInterface } from '@/interfaces/usersInterface'
 export interface UserContextType {
     usersData: UsersInterface[]
     loading: boolean
+    setUsersData: React.Dispatch<React.SetStateAction<UsersInterface[]>>
 }
 
 const UsersContext = createContext<UserContextType | undefined>(undefined)
@@ -39,7 +40,7 @@ export const UsersProvider: React.FC<{ children: React.ReactNode }> = ({
     }, [])
 
     return (
-        <UsersContext.Provider value={{ usersData, loading }}>
+        <UsersContext.Provider value={{ usersData, loading, setUsersData }}>
             {children}
         </UsersContext.Provider>
     )

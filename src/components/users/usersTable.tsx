@@ -16,13 +16,26 @@ import { Filters } from '../ui/filter'
 
 interface UsersDetails {
     usersData: UsersInterface[]
+    setUsersDataAction: React.Dispatch<React.SetStateAction<UsersInterface[]>>
 }
 
-export default function UsersTable({ usersData }: UsersDetails) {
+export default function UsersTable({
+    usersData,
+    setUsersDataAction,
+}: UsersDetails) {
+    // State to manage display of each user data menu
     const [menuOnDisplay, setMenuOnDisplay] = useState<number | null>(null)
+
+    // Ref to prevent user menu option from closing when clicked
     const menuRef = useRef<HTMLUListElement | null>(null)
 
+    // Handle routing to user details page
+    const router = useRouter()
+
+    // Hold current page for paginated data
     const [currentPage, setCurrentPage] = useState<number>(1)
+
+    // Hold the number of data to be displayed per page
     const [itemsPerPage, setItemsPerPage] = useState<number>(10)
     const [filteredUsers, setFilteredUsers] =
         useState<UsersInterface[]>(usersData)
@@ -66,8 +79,7 @@ export default function UsersTable({ usersData }: UsersDetails) {
         setFilteredUsers(usersData)
     }
 
-    const router = useRouter()
-
+    // Hold variables for pagination logic
     const totalPages = Math.ceil(usersData.length / itemsPerPage)
     const startIndex = (currentPage - 1) * itemsPerPage
     const currentUsers = filteredUsers.slice(
@@ -75,10 +87,12 @@ export default function UsersTable({ usersData }: UsersDetails) {
         startIndex + itemsPerPage
     )
 
+    // Function to handle page change
     const handlePageChange = (page: number) => {
         setCurrentPage(page)
     }
 
+    // Handle the number of items to be displayed based on user selection
     const handleItemsPerPageChange = (
         event: React.ChangeEvent<HTMLSelectElement>
     ) => {
@@ -109,6 +123,24 @@ export default function UsersTable({ usersData }: UsersDetails) {
             document.removeEventListener('mousedown', handleClickOutside)
         }
     }, [])
+
+    // Function to update user state
+    const updateUserStatus = (id: number, status: 'active' | 'blacklisted') => {
+        const updatedUsers = filteredUsers.map((user, index) => {
+            if (index === id) {
+                return { ...user, status }
+            }
+            return user
+        })
+
+        setFilteredUsers(updatedUsers)
+        setUsersDataAction(updatedUsers) // Update the original users data as well
+
+        // Store the updated user data in local storage
+        localStorage.setItem('usersData', JSON.stringify(updatedUsers))
+
+        closeModal()
+    }
 
     if (!usersData) {
         return <p>Loading...</p>
@@ -149,47 +181,64 @@ export default function UsersTable({ usersData }: UsersDetails) {
                                             alt="User Actions"
                                         />
                                     </div>
-                                    <ul
-                                        ref={menuRef}
-                                        className={styles.menu_options}
-                                        onClick={(e) => e.stopPropagation()}
-                                        style={{
-                                            display:
-                                                menuOnDisplay === id
-                                                    ? 'block'
-                                                    : 'none',
-                                        }}
-                                    >
-                                        <li>
-                                            <span className={styles.action}>
+                                    {menuOnDisplay === id && (
+                                        <ul
+                                            ref={menuRef}
+                                            className={styles.menu_options}
+                                        >
+                                            <li
+                                                onClick={() =>
+                                                    router.push(
+                                                        `/dashboard/users/${id + 1}`
+                                                    )
+                                                }
+                                            >
+                                                <span className={styles.action}>
+                                                    <Image
+                                                        src={view}
+                                                        width={15}
+                                                        height={15}
+                                                        alt="View user"
+                                                    />
+                                                    <span>View User</span>
+                                                </span>
+                                            </li>
+                                            <li
+                                                className={styles.action}
+                                                onClick={() =>
+                                                    updateUserStatus(
+                                                        id,
+                                                        'active'
+                                                    )
+                                                }
+                                            >
                                                 <Image
-                                                    src={view}
+                                                    src={activate}
                                                     width={15}
                                                     height={15}
-                                                    alt="View user"
+                                                    alt="Activate user"
                                                 />
-                                                <span>View User</span>
-                                            </span>
-                                        </li>
-                                        <li className={styles.action}>
-                                            <Image
-                                                src={activate}
-                                                width={15}
-                                                height={15}
-                                                alt="Activate user"
-                                            />
-                                            <span>Activate User</span>
-                                        </li>
-                                        <li className={styles.action}>
-                                            <Image
-                                                src={blacklist}
-                                                width={15}
-                                                height={15}
-                                                alt="Blacklist user"
-                                            />
-                                            <span>Blacklist User</span>
-                                        </li>
-                                    </ul>
+                                                <span>Activate User</span>
+                                            </li>
+                                            <li
+                                                className={styles.action}
+                                                onClick={() =>
+                                                    updateUserStatus(
+                                                        id,
+                                                        'blacklisted'
+                                                    )
+                                                }
+                                            >
+                                                <Image
+                                                    src={blacklist}
+                                                    width={15}
+                                                    height={15}
+                                                    alt="Blacklist user"
+                                                />
+                                                <span>Blacklist User</span>
+                                            </li>
+                                        </ul>
+                                    )}
                                 </td>
                             </tr>
                         ))}
