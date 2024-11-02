@@ -2,7 +2,7 @@
 @use 'mixins';
 
 .sidebar {
-    width: 70%;
+    width: 80%;
     background-color: white;
     padding-top: 5rem;
     padding-bottom: 4rem;
@@ -55,7 +55,7 @@
         .nav_button {
             border: none;
             background-color: inherit;
-            padding: 0.9 2rem;
+            padding: 0.1rem 2rem;
             outline: none;
             display: flex;
             align-items: center;

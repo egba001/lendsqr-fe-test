@@ -20,13 +20,16 @@ const Pagination: React.FC<PaginationProps> = ({
 
     const getPaginationItems = () => {
         const items: (number | string)[] = []
-        const maxPagesToShow = 5
-        const halfMaxPages = Math.floor(maxPagesToShow / 2)
+        const maxPagesToShow = 2
 
-        let startPage = Math.max(1, currentPage - halfMaxPages)
-        let endPage = Math.min(totalPages, currentPage + halfMaxPages)
+        // Calculate the range of pages to show
+        let startPage = Math.max(
+            1,
+            currentPage - Math.floor(maxPagesToShow / 2)
+        )
+        let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1)
 
-        // Adjust the start page if there aren't enough pages before the current page
+        // Adjust startPage if there aren't enough pages before currentPage
         if (endPage - startPage < maxPagesToShow - 1) {
             startPage = Math.max(1, endPage - (maxPagesToShow - 1))
         }
@@ -71,7 +74,7 @@ const Pagination: React.FC<PaginationProps> = ({
                         typeof item === 'number' && handlePageChange(item)
                     }
                     className={currentPage === item ? styles.active : ''}
-                    style={{ margin: '0 5px' }}
+                    style={{ margin: '0 5px', cursor: 'pointer' }} // Add cursor for clickable items
                 >
                     <span>{item}</span>
                 </div>
@@ -81,7 +84,7 @@ const Pagination: React.FC<PaginationProps> = ({
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
             >
-                <Image src={right} alt="previous" width={10} height={10} />
+                <Image src={right} alt="next" width={10} height={10} />
             </button>
         </div>
     )

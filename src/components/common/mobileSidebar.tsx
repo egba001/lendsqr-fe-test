@@ -30,10 +30,7 @@ export default function MobileSidebar({
             className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}
         >
             <div>
-                <button
-                    className={`${styles.nav_button} ${styles.switch}`}
-                    onClick={onCloseAction}
-                >
+                <button className={`${styles.nav_button} ${styles.switch}`}>
                     <Image src={briefcase} alt="briefcase" />
                     <span>Switch Organization</span>
                     <Image src={arrowDown} alt="arrow down" />
