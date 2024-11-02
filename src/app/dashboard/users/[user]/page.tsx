@@ -13,7 +13,7 @@ import GeneralDetails from '@/components/userDetails/generalDetails'
 import Tab from '@/components/ui/tab'
 
 export default function UserDetailsPage() {
-    const { usersData } = useUsersContext()
+    const { usersData, loading } = useUsersContext()
 
     const params = useParams<{ user: string }>()
 
@@ -42,6 +42,10 @@ export default function UserDetailsPage() {
     ]
 
     const tabTitles = tabs.map((tab) => tab.label)
+
+    if (loading) {
+        return <div className={styles.container}>Loading...</div>
+    }
 
     return (
         <>

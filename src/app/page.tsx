@@ -18,7 +18,7 @@ const avenirRegular = localFont({
     display: 'swap',
 })
 
-export default function Home() {
+export default function Login() {
     // Interface for form data
     interface FormData {
         email: string
