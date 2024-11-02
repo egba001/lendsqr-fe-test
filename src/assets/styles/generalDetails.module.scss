@@ -1,4 +1,5 @@
 @use 'variables';
+@use 'mixins';
 
 .section_container {
     color: variables.$secondary_color;
@@ -18,6 +19,11 @@
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 2rem;
+
+            @include mixins.lg_max {
+                display: flex;
+                flex-direction: column;
+            }
 
             .tag_container {
                 display: flex;
@@ -40,6 +46,9 @@
         .row_two {
             @extend .info_grid;
             grid-template-columns: repeat(4, 1fr);
+            @include mixins.lg_max {
+                grid-template-columns: (repeat(2, 1fr));
+            }
         }
     }
 }

@@ -10,18 +10,30 @@ import {
     settingsNavigation,
 } from '@/utils/constants'
 import Link from 'next/link'
-import styles from '@/assets/styles/sidebar.module.scss'
+import styles from '@/assets/styles/mobileSidebar.module.scss'
 import { usePathname, useRouter } from 'next/navigation'
 
-export default function Sidebar() {
-    const pathname = usePathname()
+interface MobileSidebarProps {
+    isOpen: boolean
+    onCloseAction: () => void
+}
 
+export default function MobileSidebar({
+    isOpen,
+    onCloseAction,
+}: MobileSidebarProps) {
+    const pathname = usePathname()
     const router = useRouter()
 
     return (
-        <aside className={styles.sidebar}>
+        <aside
+            className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}
+        >
             <div>
-                <button className={`${styles.nav_button} ${styles.switch}`}>
+                <button
+                    className={`${styles.nav_button} ${styles.switch}`}
+                    onClick={onCloseAction}
+                >
                     <Image src={briefcase} alt="briefcase" />
                     <span>Switch Organization</span>
                     <Image src={arrowDown} alt="arrow down" />
@@ -34,12 +46,16 @@ export default function Sidebar() {
                     </button>
                 </Link>
 
-                {/* Cutomers Navigation Menu */}
+                {/* Customers Navigation Menu */}
                 <p className={styles.nav_heading}>Customers</p>
                 <ul className={styles.sidebar_navigation}>
                     {customersNavigations.map((nav, id) => (
                         <li key={id}>
-                            <Link href={nav.route} className={styles.link}>
+                            <Link
+                                href={nav.route}
+                                className={styles.link}
+                                onClick={onCloseAction}
+                            >
                                 <div
                                     className={`${styles.nav_route} ${pathname === nav.route ? styles.active : null}`}
                                 >
@@ -63,7 +79,11 @@ export default function Sidebar() {
                 <ul className={styles.sidebar_navigation}>
                     {businessesNavigation.map((nav, id) => (
                         <li key={id}>
-                            <Link href={nav.route} className={styles.link}>
+                            <Link
+                                href={nav.route}
+                                className={styles.link}
+                                onClick={onCloseAction}
+                            >
                                 <div className={styles.nav_route}>
                                     <Image
                                         src={nav.icon}
@@ -85,7 +105,11 @@ export default function Sidebar() {
                 <ul className={styles.sidebar_navigation}>
                     {settingsNavigation.map((nav, id) => (
                         <li key={id}>
-                            <Link href={nav.route} className={styles.link}>
+                            <Link
+                                href={nav.route}
+                                className={styles.link}
+                                onClick={onCloseAction}
+                            >
                                 <div className={styles.nav_route}>
                                     <Image
                                         src={nav.icon}
@@ -104,7 +128,10 @@ export default function Sidebar() {
 
                 <div className={styles.logout}>
                     <button
-                        onClick={() => router.push('/')}
+                        onClick={() => {
+                            router.push('/')
+                            onCloseAction()
+                        }}
                         className={styles.nav_button}
                     >
                         <Image

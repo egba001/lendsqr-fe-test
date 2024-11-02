@@ -1,0 +1,34 @@
+@use 'variables';
+@use 'mixins';
+
+.menu_container {
+    position: absolute;
+    top: 3.75rem;
+    overflow: hidden;
+    width: 125%;
+    left: -2rem;
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0; // Default to closed state
+
+    &.open {
+        max-height: 10rem; // Set to a value based on expected content height
+    }
+
+    .menu {
+        background: white;
+        width: 100%;
+        padding: 2rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+
+        @include mixins.lg {
+            display: none;
+        }
+
+        .link {
+            color: variables.$secondary_color;
+            margin-top: 1rem;
+            display: block;
+        }
+    }
+}

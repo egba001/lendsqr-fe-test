@@ -10,6 +10,7 @@
     font-weight: 500;
     border-radius: 8px;
     padding: 0.7rem 1.2rem;
+    cursor: pointer;
 }
 
 .container {
@@ -20,7 +21,25 @@
         border-radius: 5px;
         border: 1px solid rgba(33, 63, 125, 0.06);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
-        padding: 2rem;
+        padding-top: 2rem;
+        padding-right: 2rem;
+        padding-left: 2rem;
+        padding-bottom: 2rem;
+        width: 100%;
+        overflow: auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        @include mixins.lg_max {
+            overflow-x: scroll;
+            scrollbar-width: none;
+            padding: 0.2rem;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
     }
 
     .previous_button {
@@ -34,6 +53,10 @@
         font-weight: 500;
         margin-bottom: 2rem;
         cursor: pointer;
+
+        @include mixins.lg_max {
+            margin-top: 2rem;
+        }
     }
 
     .heading_container {
@@ -41,6 +64,12 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: 2rem;
+
+        @include mixins.lg_max {
+            flex-direction: column;
+            gap: 2rem;
+            align-items: flex-start;
+        }
 
         div {
             display: flex;
@@ -65,13 +94,34 @@
 
     .info_container {
         @extend .tab_content;
+        padding-bottom: 0;
+
         margin-bottom: 2rem;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab_container {
+            width: 100%;
+
+            @include mixins.lg_max {
+                overflow-x: auto;
+                scrollbar-width: none;
+            }
+        }
 
         .info_details {
             display: flex;
             align-items: center;
             color: variables.$secondary_color;
             margin-bottom: 2rem;
+            padding-top: 2rem;
+
+            @include mixins.lg_max {
+                flex-direction: column;
+                gap: 2rem;
+            }
 
             .image_section {
                 display: flex;
@@ -118,6 +168,12 @@
                 width: 1px;
                 border: 1px solid rgba(33, 63, 125, 0.06);
                 height: 6rem;
+
+                @include mixins.lg_max {
+                    height: 1px;
+                    border: 1px solid rgba(33, 63, 125, 0.06);
+                    width: 100%;
+                }
             }
         }
     }

@@ -1,10 +1,51 @@
+@use 'mixins';
+@use 'variables';
+
 .container {
     display: flex;
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); // Semi-transparent background
+        z-index: 900; // Make sure it's below the button but above the main content
+    }
 }
 
 .content {
     padding: 1.5rem;
     padding-top: 6.8rem;
-    width: 100%;
+    width: 77%;
     background-color: #f9f9f9;
+    position: relative;
+
+    .toggle_button {
+        position: fixed;
+        top: 5.5rem; // Adjust as necessary
+        left: 0; // Adjust to match sidebar width
+        z-index: 900; // Above the sidebar and overlay
+        background: variables.$primary_color;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border: none;
+        height: 2rem;
+        width: 2rem;
+        cursor: pointer;
+        transition: left 0.3s ease;
+
+        &.open {
+            left: 70%; // Match this to the sidebar width for alignment
+        }
+
+        @include mixins.xl {
+            display: none;
+        }
+    }
+
+    @include mixins.xl_max {
+        width: 100%;
+    }
 }

@@ -2,20 +2,33 @@
 @use 'mixins';
 
 .sidebar {
-    width: 23%;
+    width: 70%;
     background-color: white;
     padding-top: 5rem;
     padding-bottom: 4rem;
+    left: -900px;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 0;
     max-height: 100vh;
     overflow-y: auto;
     scrollbar-width: none;
+    transition: left 0.3s ease;
+    z-index: 950;
 
-    @include mixins.lg_max {
+    &.open {
+        left: 0;
+        /* Show when open */
+    }
+
+    &.closed {
+        left: -1000px;
+        /* Hide when closed */
+    }
+
+    @include mixins.xl {
         display: none;
     }
 
@@ -94,6 +107,7 @@
                         text-transform: capitalize;
                     }
                 }
+
                 .active {
                     border-left: 5px solid variables.$primary_color;
                     background-color: rgba(57, 205, 204, 0.08);

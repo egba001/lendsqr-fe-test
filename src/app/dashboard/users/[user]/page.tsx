@@ -142,11 +142,13 @@ export default function UserDetailsPage() {
                             </div>
                         </div>
 
-                        <Tab
-                            titles={tabTitles}
-                            activeTab={activeTab}
-                            setter={setActiveTab}
-                        />
+                        <div className={styles.tab_container}>
+                            <Tab
+                                titles={tabTitles}
+                                activeTab={activeTab}
+                                setter={setActiveTab}
+                            />
+                        </div>
                     </div>
 
                     {/* Tab content */}

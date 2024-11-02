@@ -11,13 +11,27 @@
         justify-content: center;
         align-items: center;
         height: 100%;
+        justify-content: center;
+
+        @include mixins.lg-max {
+            display: none;
+        }
     }
 
     .image_group {
         width: 75%;
         display: flex;
         flex-direction: column;
+        align-items: first baseline;
         gap: 5rem;
+
+        .illustration {
+            margin-left: -10rem;
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
     }
 }
 
@@ -27,6 +41,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: -10px 0 15px rgba(0, 0, 0, 0.02);
+
+    @include mixins.lg-max {
+        width: 100%;
+    }
 
     .form_container {
         display: flex;
@@ -43,25 +62,34 @@
             font-size: 14px;
             font-weight: light;
             color: variables.$text_color;
+            margin-bottom: 3rem;
+            margin-top: 0.5rem;
+            font-size: large;
         }
 
         .inputs_container {
             display: flex;
             flex-direction: column;
             width: 100%;
-            gap: 0.5rem;
 
             .input_styling {
-                font-family: 'Avenir Next Regular';
+                font-family: 'Avenir' sans-serif;
                 height: 3rem;
                 width: 100%;
                 border: 2px solid variables.$inactive_input;
                 border-radius: 5px;
                 padding-left: 10px;
                 outline: none;
+                color: variables.$text_color;
+                margin-bottom: 0.9rem;
+
                 transition:
                     border-color 0.3s ease,
                     box-shadow 0.3s ease;
+
+                &::placeholder {
+                    color: rgba(84, 95, 125, 0.5);
+                }
 
                 &:focus {
                     border-color: variables.$primary_color;
@@ -72,8 +100,8 @@
 
         .fg_password {
             @include mixins.uppercase_text(variables.$primary_color);
-            margin: 1.3rem 0;
             letter-spacing: 2px;
+            margin-bottom: 1.5rem;
             display: block;
         }
 
@@ -81,28 +109,42 @@
             position: relative;
 
             .password_visibility_button {
+                all: unset;
+                text-align: center;
                 @include mixins.uppercase_text(variables.$primary_color);
                 outline: none;
                 border: none;
+
                 background-color: inherit;
                 position: absolute;
-                top: 50%;
+                top: 40%;
                 transform: translateY(-50%);
-                right: 3px;
+                right: 1rem;
                 cursor: pointer;
+                letter-spacing: 2px;
             }
         }
 
         .login_button {
+            all: unset;
+            text-align: center;
             @include mixins.uppercase_text(white);
             background-color: variables.$primary_color;
             height: 3rem;
             width: 100%;
             border-radius: 5px;
             display: block;
+            border: none;
+            font-family: 'Avenir' sans-serif;
+            margin-top: 1rem;
+            cursor: pointer;
 
             &:disabled {
-                opacity: 50;
+                opacity: 0.8;
+            }
+
+            &:hover {
+                opacity: 0.5;
             }
         }
     }

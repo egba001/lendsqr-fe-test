@@ -3,7 +3,7 @@ import styles from '@/assets/styles/tab.module.scss'
 interface TabProps {
     titles: string[]
     activeTab: number
-    setter(id: number): () => void
+    setter: (id: number) => () => void
 }
 
 export default function Tab({ titles, activeTab, setter }: TabProps) {

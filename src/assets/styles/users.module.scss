@@ -9,15 +9,33 @@
         font-size: x-large;
         color: variables.$secondary_color;
         margin-bottom: 2rem;
+
+        @include mixins.xl_max {
+            margin-top: 1rem;
+        }
     }
 
     .metrics_container {
         display: flex;
         gap: 2rem;
 
+        @include mixins.xs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mixins.md {
+            display: flex;
+            flex-direction: row;
+        }
+
+        @include mixins.lg {
+            display: flex;
+            flex-direction: row;
+        }
+
         .card {
             background-color: white;
-            width: 25%;
             border-radius: 5px;
             padding: 1.5rem;
             display: flex;
@@ -26,6 +44,10 @@
             color: variables.$secondary_color;
             border: 1px solid rgba(33, 63, 125, 0.06);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+
+            @include mixins.md {
+                width: 25%;
+            }
 
             .data_text {
                 text-transform: uppercase;

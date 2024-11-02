@@ -1,0 +1,41 @@
+@use 'variables';
+@use 'mixins';
+
+.search_input_container {
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    overflow: hidden;
+    border-radius: 10px;
+
+    input {
+        height: 2.9rem;
+        width: 20rem;
+        border: 1px solid rgba(33, 63, 125, 0.06);
+        border-radius: 10px;
+        padding-left: 10px;
+        transition: border-color 0.2s ease-in;
+        outline: none;
+        box-sizing: border-box;
+
+        &:focus {
+            border-color: variables.$primary_color;
+        }
+    }
+
+    button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 100%;
+        right: 0;
+        background-color: variables.$primary_color;
+        border: none;
+        cursor: pointer;
+        padding: 0 1rem;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

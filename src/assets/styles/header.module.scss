@@ -1,4 +1,5 @@
 @use 'variables';
+@use 'mixins';
 
 .header {
     padding: 1rem 2rem;
@@ -6,7 +7,7 @@
     font-family: 'Work Sans';
     width: 100%;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
     margin: 0;
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -14,44 +15,18 @@
     .header_container {
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
 
-        .search_input_container {
-            position: relative;
-            height: fit-content;
-            width: fit-content;
-            overflow: hidden;
-            border-radius: 10px;
-            margin-left: 12rem;
-
-            input {
-                height: 2.9rem;
-                width: 25rem;
-                border: 1px solid rgba(33, 63, 125, 0.06);
-                border-radius: 10px;
-                padding-left: 10px;
-                transition: border-color 0.2s ease-in;
-                outline: none;
-                box-sizing: border-box;
-
-                &:focus {
-                    border-color: variables.$primary_color;
-                }
+        .input_container {
+            margin: 0 auto;
+            @include mixins.xs {
+                display: none;
             }
 
-            button {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                height: 100%;
-                right: 0;
-                background-color: variables.$primary_color;
-                border: none;
-                cursor: pointer;
-                padding: 0 1rem;
-
-                &:focus {
-                    outline: none;
-                }
+            @include mixins.lg {
+                display: block;
             }
         }
 
@@ -60,6 +35,14 @@
             gap: 1.5rem;
             align-items: center;
             margin-left: auto;
+
+            .link {
+                color: variables.$secondary_color;
+
+                @include mixins.lg_max {
+                    display: none;
+                }
+            }
 
             button {
                 border: none;
@@ -101,6 +84,10 @@
                 display: flex;
                 gap: 1rem;
                 align-items: center;
+
+                @include mixins.lg_max {
+                    display: none;
+                }
 
                 p {
                     font-weight: 500;

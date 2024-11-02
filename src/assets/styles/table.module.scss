@@ -17,6 +17,8 @@
     table {
         width: 105%;
         border-collapse: collapse;
+        min-width: 80rem;
+        margin-right: 0.7rem;
 
         th,
         td {
@@ -130,6 +132,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include mixins.sm_max {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
 
     div {
         display: flex;

@@ -62,12 +62,17 @@ export default function Home() {
                         width={200}
                         height={50}
                     />
-                    <Image
-                        src={illustration}
-                        alt="Illustration"
-                        width={700}
-                        height={250}
-                    />
+
+                    <div className={styles.illustration}>
+                        <Image
+                            src={illustration}
+                            alt="Illustration"
+                            layout="responsive"
+                            style={{ objectFit: 'contain' }}
+                            width={650}
+                            height={330}
+                        />
+                    </div>
                 </div>
             </div>
 
@@ -82,7 +87,7 @@ export default function Home() {
                     <p
                         className={`${avenirRegular.className} ${styles.sub_heading}`}
                     >
-                        Enter Details to continue
+                        Enter details to login
                     </p>
 
                     <form
@@ -129,7 +134,7 @@ export default function Home() {
                         <button
                             className={styles.login_button}
                             type="submit"
-                            disabled={!formData.email || !formData.password}
+                            // disabled={formData.email.length === 0 || formData.password.length === 0}
                         >
                             Log in
                         </button>

@@ -3,3 +3,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../assets/font/AvenirNextLTPro-Bold.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
