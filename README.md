@@ -247,4 +247,4 @@ For a detailed review of my work, including decision-making and comparisons with
 
 ### Video Review
 
-I have created a video walkthrough of the application showcasing the implementation against the design specifications. You can view it here: [Video Review](https://link-to-your-video.com).
+I have created a video walkthrough of the application showcasing the implementation against the design specifications. You can view it here: [Video Review]([https://link-to-your-video.com](https://www.loom.com/share/1afc60e4900844a491cfebccd09ee09f?sid=7070a252-0a48-4772-977e-4bb163498c29)).
