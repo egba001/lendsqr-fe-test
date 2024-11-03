@@ -15,12 +15,12 @@ const TableHeader: React.FC<TableHeaderProps> = ({
     onFilter,
     onResetAction,
 }) => {
-    const [filterToggle, setFilterToggle] = useState<boolean>(false)
+    // const [filterToggle, setFilterToggle] = useState<boolean>(false)
     const [activeHeader, setActiveHeader] = useState<number | null>(null)
     const modalRef = useRef<HTMLTableRowElement>(null) // Ref for the modal
 
     const closeModal = (): void => {
-        setFilterToggle(false)
+        // setFilterToggle(false)
         setActiveHeader(null)
     }
 
@@ -29,7 +29,7 @@ const TableHeader: React.FC<TableHeaderProps> = ({
             closeModal() // Close if the same header is clicked
         } else {
             setActiveHeader(id)
-            setFilterToggle(true)
+            // setFilterToggle(true)
         }
     }
 

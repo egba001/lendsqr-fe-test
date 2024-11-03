@@ -59,7 +59,7 @@ export default function Login() {
                     <Image
                         src={logo}
                         alt="Lendsqr logo"
-                        width={200}
+                        width={170}
                         height={50}
                     />
 

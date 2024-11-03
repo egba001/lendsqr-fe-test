@@ -47,8 +47,8 @@ export default function UsersTable({
             usersData.filter((user) => {
                 return (
                     (filters.company
-                        ? user.companyName.toLowerCase() ===
-                          filters.company.toLowerCase()
+                        ? user.companyName.trim().toLowerCase() ===
+                          filters.company.trim().toLowerCase()
                         : true) &&
                     (filters.username
                         ? user.userName.includes(filters.username)
@@ -68,7 +68,6 @@ export default function UsersTable({
                         : true)
                 )
             })
-        console.log(filters)
         setCurrentPage(1)
         setFilteredUsers(filtered)
         setMenuOnDisplay(null)
@@ -80,9 +79,9 @@ export default function UsersTable({
     }
 
     // Hold variables for pagination logic
-    const totalPages = Math.ceil(usersData.length / itemsPerPage)
+    const totalPages = Math.ceil(filteredUsers.length / itemsPerPage)
     const startIndex = (currentPage - 1) * itemsPerPage
-    const currentUsers = filteredUsers.slice(
+    let currentUsers = filteredUsers.slice(
         startIndex,
         startIndex + itemsPerPage
     )
@@ -125,20 +124,41 @@ export default function UsersTable({
     }, [])
 
     // Function to update user state
-    const updateUserStatus = (id: number, status: 'active' | 'blacklisted') => {
-        const updatedUsers = filteredUsers.map((user, index) => {
-            if (index === id) {
-                return { ...user, status }
+    const updateUserStatus = (
+        userId: number,
+        status: 'active' | 'blacklisted'
+    ) => {
+        // Retrieve the current usersData from local storage
+        const cachedData = localStorage.getItem('usersData')
+        if (!cachedData) return // Exit if there's no data
+
+        // Parse the usersData from local storage
+        const usersData = JSON.parse(cachedData)
+
+        // Update the user status in the original usersData
+        const updatedUsersData = usersData.map((user) => {
+            if (user.id === userId) {
+                return { ...user, status } // Update the user's status
             }
-            return user
+            return user // Return the unchanged user
         })
 
-        setFilteredUsers(updatedUsers)
-        setUsersDataAction(updatedUsers) // Update the original users data as well
+        // Update the filteredUsers state based on the existing filtered users
+        const updatedFilteredUsers = filteredUsers.map((user) => {
+            if (user.id === userId) {
+                return { ...user, status } // Update status in filtered users
+            }
+            return user // Return unchanged user
+        })
 
-        // Store the updated user data in local storage
-        localStorage.setItem('usersData', JSON.stringify(updatedUsers))
+        // Save the updated usersData back to local storage
+        localStorage.setItem('usersData', JSON.stringify(updatedUsersData))
 
+        // Update the state with the modified arrays
+        setUsersDataAction(updatedUsersData) // Optional: Update the original state if needed
+        setFilteredUsers(updatedFilteredUsers) // Update the displayed data
+
+        // Close the modal
         closeModal()
     }
 
@@ -207,7 +227,7 @@ export default function UsersTable({
                                                 className={styles.action}
                                                 onClick={() =>
                                                     updateUserStatus(
-                                                        id,
+                                                        data.id,
                                                         'active'
                                                     )
                                                 }
@@ -224,7 +244,7 @@ export default function UsersTable({
                                                 className={styles.action}
                                                 onClick={() =>
                                                     updateUserStatus(
-                                                        id,
+                                                        data.id,
                                                         'blacklisted'
                                                     )
                                                 }

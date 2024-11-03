@@ -68,7 +68,7 @@ export const tableHeaders: TableHeadings[] = [
     },
     {
         id: 2,
-        title: 'User',
+        title: 'Username',
     },
     {
         id: 3,

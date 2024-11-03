@@ -27,7 +27,7 @@ export const UsersProvider: React.FC<{ children: React.ReactNode }> = ({
             // Otherwise, fetch from the API
             const fetchUsersData = async () => {
                 const response = await fetch(
-                    'https://run.mocky.io/v3/a8597810-24fb-40ea-b840-ce6f2c1e2f68'
+                    'https://run.mocky.io/v3/f27bafae-8475-43eb-81a5-d3360e7e1d0f'
                 )
                 const data = await response.json()
                 setUsersData(data)

@@ -31,14 +31,19 @@ interface Guarantor {
 }
 
 export interface UsersInterface {
-    companyName: string
-    userName: string
-    email: string
-    phoneNumber: string
-    dateJoined: string
-    status: string
-    personalInformation: PersonalInformation
-    educationAndEmployment: EducationAndEmployment
-    socials: Socials
-    guarantor: Guarantor[]
+    id: number // The user's unique ID
+    avatar: string // URL or path to the user's avatar
+    bank: string // Bank name
+    accountNumber: string // User's account number
+    userId: string // Unique identifier for the user
+    companyName: string // Company name associated with the user
+    userName: string // Username
+    email: string // User's email address
+    phoneNumber: string // User's phone number
+    dateJoined: string // Date and time when the user joined (ISO format)
+    status: string // User status (active, inactive, etc.)
+    personalInformation: PersonalInformation // Nested object for personal information
+    educationAndEmployment: EducationAndEmployment // Nested object for education and employment information
+    socials: Socials // Nested object for social media links
+    guarantor: Guarantor[] // Array of guarantor objects
 }
