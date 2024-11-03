@@ -23,19 +23,20 @@
         display: none;
     }
 
-    .link {
-        text-decoration: none;
-        width: 100%;
-        color: variables.$active_text;
-    }
-
     div {
         width: 100%;
+
+        .link {
+            text-decoration: none;
+            width: 100%;
+            color: variables.$active_text;
+            display: block;
+        }
 
         .switch {
             margin-top: 2rem;
             margin-bottom: 3rem;
-            margin-left: 2rem;
+            @extend .nav_button;
         }
 
         .nav_button {
@@ -93,6 +94,7 @@
                         text-transform: capitalize;
                     }
                 }
+
                 .active {
                     border-left: 5px solid variables.$primary_color;
                     background-color: rgba(57, 205, 204, 0.08);
@@ -103,9 +105,12 @@
         .logout {
             margin-top: 2.5rem;
             padding-top: 1rem;
-            padding-left: 2rem;
             gap: 1.5rem;
             border-top: 1px solid rgba(33, 63, 125, 0.06);
+
+            .logout_button {
+                @extend .nav_button;
+            }
 
             p {
                 font-size: 12px;

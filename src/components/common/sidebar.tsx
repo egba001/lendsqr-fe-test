@@ -21,7 +21,7 @@ export default function Sidebar() {
     return (
         <aside className={styles.sidebar}>
             <div>
-                <button className={`${styles.nav_button} ${styles.switch}`}>
+                <button className={styles.switch}>
                     <Image src={briefcase} alt="briefcase" />
                     <span>Switch Organization</span>
                     <Image src={arrowDown} alt="arrow down" />
@@ -103,9 +103,9 @@ export default function Sidebar() {
                 </ul>
 
                 <div className={styles.logout}>
-                    <button
+                    <div
                         onClick={() => router.push('/')}
-                        className={styles.nav_button}
+                        className={styles.logout_button}
                     >
                         <Image
                             src={logout}
@@ -114,7 +114,7 @@ export default function Sidebar() {
                             width={18}
                         />
                         <span>Logout</span>
-                    </button>
+                    </div>
                     <p>v12.0</p>
                 </div>
             </div>
