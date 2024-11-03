@@ -136,7 +136,7 @@ export default function UsersTable({
         const usersData = JSON.parse(cachedData)
 
         // Update the user status in the original usersData
-        const updatedUsersData = usersData.map((user) => {
+        const updatedUsersData = usersData.map((user: UsersInterface) => {
             if (user.id === userId) {
                 return { ...user, status } // Update the user's status
             }
