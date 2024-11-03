@@ -25,7 +25,6 @@
 
     .link {
         text-decoration: none;
-        display: block;
         width: 100%;
         color: variables.$active_text;
     }
@@ -36,7 +35,7 @@
         .switch {
             margin-top: 2rem;
             margin-bottom: 3rem;
-            text-align: start;
+            margin-left: 2rem;
         }
 
         .nav_button {
@@ -104,6 +103,7 @@
         .logout {
             margin-top: 2.5rem;
             padding-top: 1rem;
+            padding-left: 2rem;
             gap: 1.5rem;
             border-top: 1px solid rgba(33, 63, 125, 0.06);
 

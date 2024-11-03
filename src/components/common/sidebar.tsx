@@ -28,10 +28,10 @@ export default function Sidebar() {
                 </button>
 
                 <Link href="/dashboard/#" className={styles.link}>
-                    <button className={styles.nav_button}>
+                    <span className={styles.nav_button}>
                         <Image src={home} alt="home" />
                         <span>Dashboard</span>
-                    </button>
+                    </span>
                 </Link>
 
                 {/* Cutomers Navigation Menu */}
