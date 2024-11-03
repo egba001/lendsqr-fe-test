@@ -239,11 +239,11 @@ The application is deployed on Vercel. You can access the live demo [here](https
 
 ## Conclusions
 
-This assessment provided an opportunity to demonstrate my proficiency in building responsive web applications using Next.js a React framework, TypeScript, and SCSS. The design fidelity and adherence to the project requirements were prioritized throughout development. Feedback is welcomed!
+This assessment provided an opportunity to demonstrate my proficiency in building responsive web applications using Next.js a popular React framework, TypeScript, and SCSS. The design fidelity and adherence to the project requirements were prioritized throughout development. Feedback is welcomed!
 
 ## Additional Documentation
 
-For a detailed review of my work, including decision-making and comparisons with the design, please refer to this document: [Project Review Document](https://link-to-your-document.com).
+For a detailed review of my work, including decision-making and comparisons with the design, please refer to this document: [Project Review Document](https://docs.google.com/document/d/1td2mI-6w_ikKEhrIVnwzlJgIIpIpf5cZiRIGdESSnhY/edit?usp=sharing).
 
 ### Video Review
 
